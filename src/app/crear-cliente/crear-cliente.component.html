@@ -1,0 +1,21 @@
+
+<mat-card>
+    <span>Crear Nuevo Cliente</span>
+    <form [formGroup]="ClienteForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="crear-cliente-field">
+            <input matInput placeholder="CC del Cliente" formControlName="cc" type="text" pattern="[0-9]{5,10}">
+        </mat-form-field>
+        <mat-form-field class="crear-cliente-field">
+            <input matInput placeholder="Nombres del Cliente" formControlName="nombres" type="text"  pattern="[A-Za-z\s]{3,30}"><!-- El usuario solo podrá meter  palabras de 3 a 30 caracteres  con las letras de A-Z y a-z , se permite el espacio-->
+        </mat-form-field>
+        <mat-form-field class="crear-cliente-field">
+            <input matInput placeholder="Apellidos del Cliente" formControlName="apellidos" type="text" pattern="[A-Za-z\s]{6,30}">
+        </mat-form-field>
+        <mat-form-field class="crear-cliente-field">
+            <input matInput placeholder="Direccion del Cliente" formControlName="direccion">
+        </mat-form-field>
+
+        <button mat-raised-button [disabled]="!ClienteForm.valid">Crear Nuevo</button>
+
+    </form>
+</mat-card>

@@ -1,0 +1,24 @@
+<mat-toolbar>
+    <button mat-button routerLink='/'>
+        <mat-icon color="white">home</mat-icon><b> App</b>
+    </button>
+    <button mat-button routerLink='/clientes'>
+        <mat-icon color="white">manage_accounts</mat-icon><b> Clientes</b>
+    </button>
+    <button mat-button *ngIf="auth.isAutenticado" routerLink='/crear-cliente'>
+        <mat-icon color="white">person_add</mat-icon><b> Nuevo Cliente</b>
+    </button>
+    <span style="flex: 1 1 auto"></span>
+    <button mat-button *ngIf="auth.isAutenticado">
+        <mat-icon color="white">account_circle</mat-icon><b> Bienvenido {{auth.getUsername}}</b>
+    </button>
+    <button mat-button *ngIf="auth.isAutenticado" (click)="auth.logout()">
+        <mat-icon color="white">logout</mat-icon><b> Logout</b>
+    </button>
+    <button mat-button *ngIf="!auth.isAutenticado" routerLink='/register'>
+        <mat-icon color="white">app_registration</mat-icon><b> Registrarse</b>
+    </button>
+    <button mat-button *ngIf="!auth.isAutenticado" routerLink='/login'>
+        <mat-icon color="white">login</mat-icon><b> Login</b>
+    </button>
+</mat-toolbar>
