@@ -23,6 +23,7 @@ export class DeleteClienteComponent implements OnInit {
 
   ngOnInit(): void {
     this.id=this.route.snapshot.paramMap.get('id');
+    console.log(this.id);
     this.service.getClienteById(this.id).subscribe((data:any)=>{
       console.log(data);
       this.cliente.cc=data.result.cc;
